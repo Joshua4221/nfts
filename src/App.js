@@ -15,7 +15,6 @@ import NFTService from "./service/nftApi";
 import SearchComponent from "./component/searchComponent";
 import ModalComponent from "./component/modal/modalComponent";
 import NftShow from "./component/nftShowMore/nftShow";
-import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
   const dispatch = useDispatch();

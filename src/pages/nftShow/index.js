@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { NftDiv } from "./styles/nft.styles";
 import author from "../../Asset/auction_1.jpg";
 import { BsFillHandbagFill } from "react-icons/bs";
-import NftShow from "../../component/nftShowMore/nftShow";
-import ModalComponent from "../../component/modal/modalComponent";
 import NFTService from "../../service/nftApi";
 import { useDispatch, useSelector } from "react-redux";
 import Spiner from "../../component/spinner";
