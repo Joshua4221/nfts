@@ -25,7 +25,7 @@ const PaginationComponent = ({ onPrev, onNext, skip, details }) => {
         onClick={() => onNext()}
         style={{
           color: `${
-            skip === Number(details?.number_of_pages) - 2 ? "#344054" : "#fff"
+            skip === Number(details?.number_of_pages) - 1 ? "#344054" : "#fff"
           }`,
         }}
       >
