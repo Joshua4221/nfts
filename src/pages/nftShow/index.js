@@ -145,7 +145,7 @@ const NFT = () => {
           </div>
         )}
 
-        {Object.keys(nftData).length > 0 && (
+        {Object.keys(nftData).length > 0 && !loading && (
           <div className="pagination">
             <PaginationComponent
               skip={nftData?.page}
