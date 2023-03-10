@@ -26,3 +26,21 @@ const Spiner = () => {
 };
 
 export default Spiner;
+
+export const SpinerDark = () => {
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#16151a");
+
+  return (
+    <div>
+      <GridLoader
+        color={color}
+        loading={loading}
+        cssOverride={override}
+        size={20}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    </div>
+  );
+};

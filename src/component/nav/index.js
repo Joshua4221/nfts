@@ -1,9 +1,12 @@
 import React from "react";
 import { FiSearch } from "react-icons/fi";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { getSearchChecker } from "../../store/action/nftAction";
 import { Navdiv } from "./styles/nav.styles";
 
 const Nav = () => {
+  const dispatch = useDispatch();
   return (
     <Navdiv>
       <div className="nav_wrapper">
@@ -30,7 +33,12 @@ const Nav = () => {
         </div>
 
         <div className="search_wrapper">
-          <div className="search_icon_body">
+          <div
+            className="search_icon_body"
+            onClick={() => {
+              dispatch(getSearchChecker(true));
+            }}
+          >
             <FiSearch className="search_icon" />
           </div>
         </div>

@@ -9,11 +9,38 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { getSearchLoader, getTotalData } from "./store/action/nftAction";
+import { useDispatch, useSelector } from "react-redux";
+import NFTService from "./service/nftApi";
+import SearchComponent from "./component/searchComponent";
+import ModalComponent from "./component/modal/modalComponent";
+import NftShow from "./component/nftShowMore/nftShow";
 
 function App() {
+  const dispatch = useDispatch();
+  const openModal = useSelector((state) => state?.NFTReducer?.openModal);
+  const searchChecker = useSelector(
+    (state) => state?.NFTReducer?.searchChecker
+  );
+
+  const fetchData = async () => {
+    dispatch(getSearchLoader(true));
+    const constants = await Promise.all([
+      NFTService.EthNft(),
+      NFTService.PolyNft(),
+    ]);
+
+    const totalsArray = [...constants[0]?.results, ...constants[1]?.results];
+
+    dispatch(getTotalData(totalsArray));
+    dispatch(getSearchLoader(false));
+  };
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
+
+    fetchData();
   }, []);
 
   return (
@@ -28,6 +55,14 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
+
+        <ModalComponent open={searchChecker}>
+          <SearchComponent />
+        </ModalComponent>
+
+        <ModalComponent open={openModal}>
+          <NftShow />
+        </ModalComponent>
       </BrowserRouter>
 
       <ToastContainer

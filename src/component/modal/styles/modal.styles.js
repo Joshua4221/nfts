@@ -16,9 +16,9 @@ export const ModalDiv = styled.div`
   backdrop-filter: blur(0px);
 
   .modalContainer {
-    padding: 50px 0px;
+    margin: 50px 0px;
     width: 100%;
-    height: 100%;
+    height: 120%;
 
     .modalContent {
       width: 100%;

@@ -21,11 +21,8 @@ const NFT = () => {
 
   const loading = useSelector((state) => state?.NFTReducer?.loader);
   const nftData = useSelector((state) => state?.NFTReducer?.nftData);
-  const openModal = useSelector((state) => state?.NFTReducer?.openModal);
 
   const [change, setChange] = useState(false);
-
-  console.log(nftData, "Seee");
 
   const fetchData = async () => {
     dispatch(Loader(true));
@@ -147,10 +144,6 @@ const NFT = () => {
             </div>
           </div>
         )}
-
-        <ModalComponent open={openModal}>
-          <NftShow />
-        </ModalComponent>
 
         {Object.keys(nftData).length > 0 && (
           <div className="pagination">

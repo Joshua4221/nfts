@@ -7,7 +7,6 @@ import { GetSingleNFT, ModalChecker } from "../../store/action/nftAction";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const NftShow = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const singleNFT = useSelector((state) => state?.NFTReducer?.singleNFT);
 
